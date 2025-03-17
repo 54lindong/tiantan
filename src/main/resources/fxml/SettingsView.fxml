@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefHeight="600" prefWidth="800" 
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.tiantan.controller.SettingsController"
+            styleClass="settings-container">
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="settings-scroll">
+            <VBox spacing="20" styleClass="settings-panel">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+                
+                <!-- 语言设置 -->
+                <TitledPane text="%settings.language" expanded="true">
+                    <VBox spacing="10">
+                        <HBox spacing="20">
+                            <fx:define>
+                                <ToggleGroup fx:id="languageGroup"/>
+                            </fx:define>
+                            <RadioButton fx:id="chineseRadio" text="%settings.language.chinese" 
+                                         toggleGroup="$languageGroup" selected="true"/>
+                            <RadioButton fx:id="englishRadio" text="%settings.language.english" 
+                                         toggleGroup="$languageGroup"/>
+                        </HBox>
+                    </VBox>
+                </TitledPane>
+                
+                <!-- 界面设置 -->
+                <TitledPane text="%settings.interface" expanded="true">
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="NEVER" minWidth="150"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+                        
+                        <Label text="%settings.theme" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <ComboBox fx:id="themeComboBox" maxWidth="Infinity" 
+                                  GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                                  
+                        <Label text="%settings.fontSize" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <ComboBox fx:id="fontSizeComboBox" maxWidth="Infinity" 
+                                  GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    </GridPane>
+                </TitledPane>
+                
+                <!-- 地图设置 -->
+                <TitledPane text="%settings.map" expanded="true">
+                    <VBox spacing="10">
+                        <Label text="%settings.defaultZoom"/>
+                        <Slider fx:id="mapZoomSlider" showTickMarks="true" showTickLabels="true"
+                                majorTickUnit="0.5" minorTickCount="4"/>
+                                
+                        <CheckBox fx:id="showCrowdWarningCheckBox" text="%settings.showCrowdWarning"/>
+                    </VBox>
+                </TitledPane>
+                
+                <!-- 应用设置 -->
+                <TitledPane text="%settings.application" expanded="true">
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="NEVER" minWidth="150"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+                        
+                        <Label text="%settings.autoSave" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <HBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <Spinner fx:id="autoSaveIntervalSpinner" prefWidth="100"/>
+                            <Label text="%time.seconds"/>
+                        </HBox>
+                    </GridPane>
+                </TitledPane>
+                
+                <!-- 按钮区域 -->
+                <HBox spacing="20" alignment="CENTER_RIGHT">
+                    <Button fx:id="saveSettingsButton" text="%settings.save" defaultButton="true"/>
+                    <Button fx:id="resetSettingsButton" text="%settings.reset"/>
+                </HBox>
+                
+                <!-- 版本信息 -->
+                <HBox alignment="CENTER">
+                    <Label fx:id="versionLabel" styleClass="version-info"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+    
+</BorderPane>

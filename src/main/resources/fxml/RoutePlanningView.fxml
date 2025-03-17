@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefHeight="600" prefWidth="800" 
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.tiantan.controller.RouteController"
+            styleClass="route-container">
+
+    <top>
+        <VBox spacing="10" styleClass="route-controls">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <GridPane hgap="10" vgap="5">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="NEVER" minWidth="100"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                    <ColumnConstraints hgrow="NEVER" minWidth="100"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                
+                <Label text="%route.startPoint" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="startSpotComboBox" maxWidth="Infinity" 
+                          GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                          
+                <Label text="%route.endPoint" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="endSpotComboBox" maxWidth="Infinity" 
+                          GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                          
+                <Label text="%route.type" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <ComboBox fx:id="routeTypeComboBox" maxWidth="Infinity" 
+                          GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                          
+                <Label text="%route.time" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <HBox GridPane.columnIndex="3" GridPane.rowIndex="1" spacing="5">
+                    <Spinner fx:id="timeSpinner" maxWidth="100"/>
+                    <Label text="%time.minutes"/>
+                </HBox>
+                
+                <CheckBox fx:id="avoidCrowdsCheckBox" text="%route.avoidCrowds" 
+                          GridPane.columnIndex="0" GridPane.rowIndex="2" 
+                          GridPane.columnSpan="2"/>
+                          
+                <CheckBox fx:id="accessibleOnlyCheckBox" text="%route.accessibleOnly" 
+                          GridPane.columnIndex="2" GridPane.rowIndex="2" 
+                          GridPane.columnSpan="2"/>
+                          
+                <HBox spacing="10" alignment="CENTER_RIGHT" 
+                      GridPane.columnIndex="0" GridPane.rowIndex="3" 
+                      GridPane.columnSpan="4">
+                    <Button fx:id="findRouteButton" text="%route.findRoute" defaultButton="true"/>
+                    <Button fx:id="clearButton" text="%route.clear"/>
+                </HBox>
+            </GridPane>
+        </VBox>
+    </top>
+    
+    <center>
+        <SplitPane dividerPositions="0.7" styleClass="route-split-pane">
+            <!-- 路线列表 -->
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="%route.stops" styleClass="section-title"/>
+                    <Button fx:id="moveUpButton" text="%route.moveUp" disable="true"/>
+                    <Button fx:id="moveDownButton" text="%route.moveDown" disable="true"/>
+                    <Button fx:id="removeStopButton" text="%route.removeStop" disable="true"/>
+                </HBox>
+                
+                <TableView fx:id="routeTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="orderColumn" text="%route.column.order" prefWidth="50"/>
+                        <TableColumn fx:id="spotNameColumn" text="%route.column.name" prefWidth="250"/>
+                        <TableColumn fx:id="stayTimeColumn" text="%route.column.stayTime" prefWidth="150"/>
+                    </columns>
+                    <placeholder>
+                        <Label text="%route.noStops"/>
+                    </placeholder>
+                </TableView>
+                
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label fx:id="totalTimeLabel" HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="totalDistanceLabel" HBox.hgrow="ALWAYS"/>
+                </HBox>
+                
+                <VBox fx:id="routeInfoBox" spacing="5">
+                    <TitledPane text="%route.info" expanded="true">
+                        <VBox spacing="5">
+                            <Label fx:id="routeNameLabel" styleClass="route-name"/>
+                            <TextArea fx:id="routeDescriptionArea" wrapText="true" 
+                                      prefHeight="80" editable="false"/>
+                                      
+                            <HBox spacing="10" alignment="CENTER_RIGHT">
+                                <Button fx:id="saveRouteButton" text="%route.save"/>
+                                <Button fx:id="optimizeRouteButton" text="%route.optimize"/>
+                            </HBox>
+                        </VBox>
+                    </TitledPane>
+                </VBox>
+            </VBox>
+            
+            <!-- 可用景点列表 -->
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="%route.availableSpots" styleClass="section-title"/>
+                    <CheckBox fx:id="preferPopularCheckBox" text="%route.preferPopular"/>
+                </HBox>
+                
+                <ListView fx:id="availableSpotsListView" VBox.vgrow="ALWAYS"/>
+                
+                <Button fx:id="addToRouteButton" text="%route.addToRoute" maxWidth="Infinity"/>
+            </VBox>
+        </SplitPane>
+    </center>
+    
+</BorderPane>

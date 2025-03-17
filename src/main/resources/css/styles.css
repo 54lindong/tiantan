@@ -1,0 +1,221 @@
+/* 主容器样式 */
+.main-container {
+    -fx-background-color: #f5f5f5;
+}
+
+/* 标题区域样式 */
+.title-container {
+    -fx-padding: 10px;
+    -fx-background-color: #2c3e50;
+    -fx-background-radius: 5px;
+}
+
+.app-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* 状态栏样式 */
+.status-bar {
+    -fx-background-color: #ecf0f1;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1px 0 0 0;
+}
+
+/* 地图相关样式 */
+.map-container {
+    -fx-background-color: white;
+}
+
+.map-view-container {
+    -fx-background-color: #ecf0f1;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+.map-pane {
+    -fx-background-color: white;
+}
+
+.normal-map {
+    -fx-background-color: #f0f0f0;
+}
+
+.satellite-map {
+    -fx-background-color: #363636;
+}
+
+.schematic-map {
+    -fx-background-color: #e6f5ff;
+}
+
+.control-panel {
+    -fx-background-color: #ecf0f1;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 0 0 0 1px;
+}
+
+.spot-name {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.spot-label {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-padding: 2px 5px;
+    -fx-background-radius: 3px;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+}
+
+/* 搜索相关样式 */
+.search-container {
+    -fx-background-color: white;
+}
+
+.search-controls {
+    -fx-background-color: #ecf0f1;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.search-results .table-row-cell:selected {
+    -fx-background-color: #3498db;
+}
+
+.search-results .table-row-cell:selected .text {
+    -fx-fill: white;
+}
+
+/* 路线规划相关样式 */
+.route-container {
+    -fx-background-color: white;
+}
+
+.route-controls {
+    -fx-background-color: #ecf0f1;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.route-split-pane {
+    -fx-background-color: transparent;
+}
+
+.route-split-pane .split-pane-divider {
+    -fx-background-color: #bdc3c7;
+    -fx-padding: 0 1px;
+}
+
+.section-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.route-name {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* 设置相关样式 */
+.settings-container {
+    -fx-background-color: white;
+}
+
+.settings-scroll {
+    -fx-background-color: transparent;
+}
+
+.settings-panel {
+    -fx-background-color: white;
+    -fx-max-width: 800px;
+}
+
+.version-info {
+    -fx-font-style: italic;
+    -fx-text-fill: #7f8c8d;
+}
+
+/* 通用按钮样式 */
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 3px;
+}
+
+.button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.button:pressed {
+    -fx-background-color: #1c6ea4;
+}
+
+/* 切换按钮样式 */
+.toggle-button {
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-background-radius: 3px;
+}
+
+.toggle-button:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+.toggle-button:selected {
+    -fx-background-color: #2ecc71;
+}
+
+/* 组件样式 */
+.check-box:selected .mark {
+    -fx-background-color: #2ecc71;
+}
+
+.radio-button:selected .radio {
+    -fx-border-color: #2ecc71;
+}
+
+.radio-button:selected .dot {
+    -fx-background-color: #2ecc71;
+}
+
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 3px;
+}
+
+.slider .track {
+    -fx-background-color: #ecf0f1;
+}
+
+.slider .thumb {
+    -fx-background-color: #3498db;
+}
+
+/* 针对不同屏幕尺寸的响应式设计 */
+@media screen and (max-width: 800px) {
+    .app-title {
+        -fx-font-size: 20px;
+    }
+    
+    .control-panel {
+        -fx-pref-width: 200px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .app-title {
+        -fx-font-size: 18px;
+    }
+    
+    .control-panel {
+        -fx-pref-width: 180px;
+    }
+}

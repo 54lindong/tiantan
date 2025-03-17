@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefHeight="600" prefWidth="800" 
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.tiantan.controller.MapController"
+            styleClass="map-container">
+
+    <center>
+        <AnchorPane fx:id="mapContainer" styleClass="map-view-container">
+            <Pane fx:id="mapPane" styleClass="map-pane"/>
+        </AnchorPane>
+    </center>
+    
+    <right>
+        <VBox spacing="10" styleClass="control-panel" prefWidth="250">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <!-- 地图控制面板 -->
+            <TitledPane text="%map.controls" expanded="true">
+                <VBox spacing="5">
+                    <HBox spacing="5" alignment="CENTER">
+                        <Button fx:id="zoomInButton" text="+" minWidth="40"/>
+                        <Slider fx:id="zoomSlider" minWidth="100" majorTickUnit="0.5"
+                                minorTickCount="4" showTickMarks="true"/>
+                        <Button fx:id="zoomOutButton" text="-" minWidth="40"/>
+                    </HBox>
+                    <Button fx:id="resetButton" text="%map.reset" maxWidth="Infinity"/>
+                    
+                    <Separator/>
+                    
+                    <Label text="%map.viewMode"/>
+                    <ComboBox fx:id="viewModeComboBox" maxWidth="Infinity"/>
+                    
+                    <Separator/>
+                    
+                    <HBox spacing="10">
+                        <ToggleButton fx:id="showPathsToggle" text="%map.showPaths"/>
+                        <ToggleButton fx:id="showLabelsToggle" text="%map.showLabels"/>
+                    </HBox>
+                    
+                    <CheckBox fx:id="avoidCrowdsCheckBox" text="%map.avoidCrowds"/>
+                </VBox>
+            </TitledPane>
+            
+            <!-- 景点信息面板 -->
+            <TitledPane text="%map.spotInfo" expanded="true">
+                <VBox fx:id="spotInfoBox" spacing="5">
+                    <Label fx:id="spotNameLabel" styleClass="spot-name"/>
+                    <TextArea fx:id="spotDescriptionText" wrapText="true" prefHeight="100" editable="false"/>
+                    <Label fx:id="spotCategoryLabel"/>
+                    <Label fx:id="spotVisitTimeLabel"/>
+                    
+                    <Separator/>
+                    
+                    <HBox spacing="10">
+                        <Button fx:id="findRouteToButton" text="%map.findRoute" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="centerMapButton" text="%map.centerMap" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+        </VBox>
+    </right>
+    
+</BorderPane>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:id="mainPane" prefHeight="768" prefWidth="1024" 
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.tiantan.controller.MainController"
+            styleClass="main-container">
+
+    <top>
+        <VBox spacing="5">
+            <padding>
+                <Insets top="10" right="10" bottom="5" left="10"/>
+            </padding>
+            
+            <!-- 标题 -->
+            <HBox alignment="CENTER" styleClass="title-container">
+                <Label text="%app.title" styleClass="app-title"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <Tab fx:id="mapTab" text="%ui.tab.map">
+                <!-- 地图视图将在控制器中动态加载 -->
+            </Tab>
+            <Tab fx:id="searchTab" text="%ui.tab.search">
+                <!-- 搜索视图将在控制器中动态加载 -->
+            </Tab>
+            <Tab fx:id="routeTab" text="%ui.tab.route">
+                <!-- 路线规划视图将在控制器中动态加载 -->
+            </Tab>
+            <Tab fx:id="settingsTab" text="%ui.tab.settings">
+                <!-- 设置视图将在控制器中动态加载 -->
+            </Tab>
+        </TabPane>
+    </center>
+    
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="status-bar">
+            <padding>
+                <Insets top="5" right="10" bottom="5" left="10"/>
+            </padding>
+            <Label fx:id="statusLabel" text="%status.ready"/>
+        </HBox>
+    </bottom>
+    
+</BorderPane>

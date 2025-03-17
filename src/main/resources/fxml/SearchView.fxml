@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefHeight="600" prefWidth="800" 
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.tiantan.controller.SearchController"
+            styleClass="search-container">
+
+    <top>
+        <VBox spacing="10" styleClass="search-controls">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" promptText="%search.prompt" HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="categoryComboBox" prefWidth="150"/>
+                <CheckBox fx:id="accessibleCheckBox" text="%search.accessibleOnly"/>
+                <CheckBox fx:id="fuzzySearchCheckBox" text="%search.fuzzy"/>
+                <Button fx:id="searchButton" text="%search.button" defaultButton="true"/>
+                <Button fx:id="clearButton" text="%search.clear"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <BorderPane>
+            <center>
+                <TableView fx:id="resultsTable" styleClass="search-results">
+                    <columns>
+                        <TableColumn fx:id="nameColumn" text="%search.column.name" prefWidth="300"/>
+                        <TableColumn fx:id="categoryColumn" text="%search.column.category" prefWidth="150"/>
+                        <TableColumn fx:id="visitTimeColumn" text="%search.column.visitTime" prefWidth="150"/>
+                    </columns>
+                    <placeholder>
+                        <Label text="%search.noResults"/>
+                    </placeholder>
+                </TableView>
+            </center>
+            
+            <bottom>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <padding>
+                        <Insets top="5" right="10" bottom="5" left="10"/>
+                    </padding>
+                    
+                    <Label fx:id="resultCountLabel" HBox.hgrow="ALWAYS"/>
+                    
+                    <HBox spacing="5" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                        <Label text="%search.sortBy"/>
+                        <Button fx:id="sortByNameButton" text="%search.sort.name"/>
+                        <Button fx:id="sortByPopularityButton" text="%search.sort.popularity"/>
+                        <Button fx:id="sortByVisitTimeButton" text="%search.sort.visitTime"/>
+                    </HBox>
+                </HBox>
+            </bottom>
+        </BorderPane>
+    </center>
+    
+</BorderPane>
